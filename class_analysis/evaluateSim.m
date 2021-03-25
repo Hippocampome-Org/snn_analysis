@@ -1,5 +1,11 @@
 clear all; close all; clc;
 
+% Create a directory for simulation results if it does not exist
+fileOutLoc = 'D:\class_results';
+if not(isfolder(fileOutLoc))
+    mkdir(fileOutLoc)
+end
+
 % Declare variables to be used for the final time of the simulation (in
 % ms) and for the binWidth to bin spikes for histogram comparison
 tf = 9000;
@@ -102,12 +108,6 @@ for i = 1:length(subFolders)
     cd ..
 end
 toc
-
-% Create a directory for simulation results if it does not exist
-fileOutLoc = 'D:\class_results';
-if not(isfolder(fileOutLoc))
-    mkdir(fileOutLoc)
-end
 
 % Now let's use the cell array containing the binned simulation data, and
 % perform a quick sum on the activity of each to obtain the grand average

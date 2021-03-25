@@ -18,7 +18,7 @@ Before any analysis can be performed, a directory that will contain the simulati
 
   ```
  cd analysis_directory_of_choice
- fileLoc = 'yourChoiceDrive:\your_directory_choice'
+ fileLoc = 'your_choice_drive:\your_directory_choice'
  evaluateSim
   ```
 

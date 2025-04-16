@@ -1,0 +1,59 @@
+CA3_example patch notes
+Author: Nate Sutton, May 12 2022
+
+Patch #1
+getspikephase.m:
+Changed
+peaks=[peaks(1:end-1)'; peaks(end):mean(diff(peaks)):(max(activitytimes)+mean(diff(peaks)))];
+To
+peaks=[peaks(1:end-1) peaks(end):mean(diff(peaks)):(max(activitytimes)+mean(diff(peaks)))];
+
+Issue:
+This avoids "Error using vertcat Dimensions of arrays being concatenated are not consistent."
+
+Patch #2
+evaluateSim.m:
+Commented out:
+     phaseResultFilt = [phaseResultFilt; i*ones(size(phaseFilt,1),1), ...
+                        phaseFilt];
+     MRVLResultFilt = [MRVLResultFilt; i*ones(size(MRVLFilt,1),1), ...
+                       MRVLFilt];
+     stdPhaseResultFilt = [stdPhaseResultFilt; ...
+                           i*ones(size(stdPhaseFilt,1),1), stdPhaseFilt];
+     rayleighResultFilt = [rayleighResultFilt; ...
+                           i*ones(size(rayleighPValsFilt,1),1), ...
+                           rayleighPValsFilt];
+     meanSpkOscRatioResultFilt = [meanSpkOscRatioResultFilt; ...
+                                  i*ones(size(meanSpkOscRatioFilt,1),1), ...
+                                  meanSpkOscRatioFilt];
+                                  
+Issue:
+Avoids "phaseFilt" and other variables don't exist issue. The variables created here appear to
+be used no where else and just cause errors.
+
+Patch #3
+createLFPPlots.m:
+Changed
+t = 1:1:tf;
+to
+t = 1:1:10000;
+
+Issue:
+A mismatch between time points and approxLFPfull is created (i.e., 9000 timepoints and size(approxLFPfull)=10000).
+It is assumed that the timepoints should match the approxLFPfull size.
+
+Notes:
+This patch (#3) should not be used with CARLsim4 results because those in practice have been observed not to need it
+and not to work with it.
+
+These patches have been applied to
+archetype_analysis
+baseline_analysis
+class_analysis
+
+Tested and ran successfully:
+baseline_analysis
+class_analysis
+
+Still has an error:
+archetype_analysis

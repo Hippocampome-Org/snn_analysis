@@ -25,10 +25,10 @@ for i = 1:2:length(modeNames)
                    ActivityClassResults(j,40:44)'];
     figure; clf;
     boxplot(currentPeak,group)
-    xlabel('# Pyramidal Cells Activated','FontSize',35)
-    ylabel(sprintf('%s',modeNames(i)),'FontSize',35)
+    xlabel('# Pyramidal Cells Activated','FontSize',9)
+    ylabel(sprintf('%s',modeNames(i)),'FontSize',9)
     ax = gca;
-    ax.FontSize = 30;
+    ax.FontSize = 9;
     set(gca,'XTickLabel', {'25','50','75','100','150','200','250','300','350'})
     set(gcf,'Position',get(0,'ScreenSize'));
     saveas(gcf,fileOutLoc + "/" + fileOutNames(i) + "_" + className + ".png")
@@ -46,10 +46,10 @@ for i = 1:2:length(modeNames)
                 
     figure; clf;
     boxplot(currentPower,group)
-    xlabel('# Pyramidal Cells Activated','FontSize',35)
-    ylabel(sprintf('%s',modeNames(i+1)),'FontSize',35)
+    xlabel('# Pyramidal Cells Activated','FontSize',9)
+    ylabel(sprintf('%s',modeNames(i+1)),'FontSize',9)
     ax = gca;
-    ax.FontSize = 30;
+    ax.FontSize = 9;
     set(gca,'XTickLabel', {'25','50','75','100','150','200','250','300','350'})
     set(gcf,'Position',get(0,'ScreenSize'));
     saveas(gcf,fileOutLoc + "/" + fileOutNames(i+1) + "_" + className + ".png")

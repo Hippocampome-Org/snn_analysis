@@ -2,7 +2,8 @@ function [] = createLFPPlots(NMsimData,analysisCut,tf,className,fileOutLoc)
 
 % Declare a variable for time cutoff for analysis, and a time series for
 % plotting
-t = 1:1:tf;
+%t = 1:1:tf;
+t = 1:1:10000;
 startIntervalFull = 7000;
 endIntervalFull = 7500;
 
@@ -15,9 +16,11 @@ end
 % Plot the full length LFP
 approxLFPfull = mean(popV);
 figure; clf;
+%disp(size(t))
+%disp(size(approxLFPfull))
 plot(t,approxLFPfull,'k');
-xlabel('time (ms)','FontSize',60);
-ylabel('LFP Approximation (mV)','FontSize',60)
+xlabel('time (ms)','FontSize',10);
+ylabel('LFP Approximation (mV)','FontSize',10)
 ax = gca;
 xlim([t(1) t(end)])
 ylim([-80 -30])
@@ -30,14 +33,14 @@ saveas(gcf,fileOutLoc + "/" + "full_lfp" + "_" + className + ".jpeg");
 % Plot the selected time window of the full length LFP
 figure; clf;
 plot(t(startIntervalFull:endIntervalFull),approxLFPfull(startIntervalFull:endIntervalFull),'k','LineWidth',5.0);
-xlabel('time (ms)','FontSize',60);
-ylabel('LFP Approximation (mV)','FontSize',60)
+xlabel('time (ms)','FontSize',10);
+ylabel('LFP Approximation (mV)','FontSize',10)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 xlim([t(startIntervalFull) t(endIntervalFull)])
 ylim([-65 -49])
 ax.LineWidth = 5.0;
-ax.FontSize = 40;
+ax.FontSize = 9;
 set(gca,'box','off');
 set(gca,'TickDir','out')
 title('LFP for CA3 Local Circuit');
@@ -49,10 +52,10 @@ close all;
 theta_filtered = bandpass(approxLFPfull,[4 12],1000);
 figure; clf;
 plot(t,theta_filtered,'k','LineWidth',5.0);
-xlabel('time (ms)','FontSize',60);
-ylabel('LFP Approximation (mV)','FontSize',60)
+xlabel('time (ms)','FontSize',10);
+ylabel('LFP Approximation (mV)','FontSize',10)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 ax.LineWidth = 5.0;
 xlim([t(1) t(end)])
 set(gca,'box','off');
@@ -65,10 +68,10 @@ saveas(gcf,fileOutLoc + "/" + "theta_filtered_lfp" + "_" + className + ".jpeg");
 % length LFP
 figure; clf;
 plot(t(startIntervalFull:endIntervalFull),theta_filtered(startIntervalFull:endIntervalFull),'k','LineWidth',5.0);
-xlabel('time (ms)','FontSize',60);
-ylabel('LFP Approximation (mV)','FontSize',60)
+xlabel('time (ms)','FontSize',10);
+ylabel('LFP Approximation (mV)','FontSize',10)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 ax.LineWidth = 5.0;
 xlim([t(startIntervalFull) t(endIntervalFull)])
 set(gca,'box','off');
@@ -82,10 +85,10 @@ close all;
 gamma_filtered = bandpass(approxLFPfull,[25 100],1000);
 figure; clf;
 plot(t,gamma_filtered,'k','LineWidth',5.0);
-xlabel('time (ms)','FontSize',60);
-ylabel('LFP Approximation (mV)','FontSize',60)
+xlabel('time (ms)','FontSize',10);
+ylabel('LFP Approximation (mV)','FontSize',10)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 ax.LineWidth = 5.0;
 xlim([t(1) t(end)])
 set(gca,'box','off');
@@ -98,10 +101,10 @@ saveas(gcf,fileOutLoc + "/" + "gamma_filtered_lfp" + "_" + className + ".jpeg");
 % length LFP
 figure; clf;
 plot(t(startIntervalFull:endIntervalFull),gamma_filtered(startIntervalFull:endIntervalFull),'k','LineWidth',5.0);
-xlabel('time (ms)','FontSize',60);
-ylabel('LFP Approximation (mV)','FontSize',60)
+xlabel('time (ms)','FontSize',10);
+ylabel('LFP Approximation (mV)','FontSize',10)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 ax.LineWidth = 5.0;
 xlim([t(startIntervalFull) t(endIntervalFull)])
 set(gca,'box','off');
@@ -115,10 +118,10 @@ close all;
 swr_filtered = bandpass(approxLFPfull,[150 200],1000);
 figure; clf;
 plot(t,swr_filtered,'k','LineWidth',5.0);
-xlabel('time (ms)','FontSize',60);
-ylabel('LFP Approximation (mV)','FontSize',60)
+xlabel('time (ms)','FontSize',10);
+ylabel('LFP Approximation (mV)','FontSize',10)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 ax.LineWidth = 5.0;
 xlim([t(1) t(end)])
 set(gca,'box','off');
@@ -131,10 +134,10 @@ saveas(gcf,fileOutLoc + "/" + "swr_filtered_lfp" + "_" + className + ".jpeg");
 % length LFP
 figure; clf;
 plot(t(startIntervalFull:endIntervalFull),swr_filtered(startIntervalFull:endIntervalFull),'k','LineWidth',5.0);
-xlabel('time (ms)','FontSize',60);
-ylabel('LFP Approximation (mV)','FontSize',60)
+xlabel('time (ms)','FontSize',10);
+ylabel('LFP Approximation (mV)','FontSize',10)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 ax.LineWidth = 5.0;
 xlim([t(startIntervalFull) t(endIntervalFull)])
 set(gca,'box','off');
@@ -148,10 +151,10 @@ close all;
 beta_filtered = bandpass(approxLFPfull,[10 30],1000);
 figure; clf;
 plot(t,beta_filtered,'color','k','LineWidth',5.0);
-xlabel('time (ms)','FontSize',60);
-ylabel('LFP Approximation (mV)','FontSize',60)
+xlabel('time (ms)','FontSize',10);
+ylabel('LFP Approximation (mV)','FontSize',10)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 ax.LineWidth = 5.0;
 xlim([t(1) t(end)])
 set(gca,'box','off');
@@ -164,10 +167,10 @@ saveas(gcf,fileOutLoc + "/" + "10_30_filtered_lfp" + "_" + className + ".jpeg");
 % length LFP
 figure; clf;
 plot(t(startIntervalFull:endIntervalFull),beta_filtered(startIntervalFull:endIntervalFull),'color','k','LineWidth',5.0);
-xlabel('time (ms)','FontSize',60);
-ylabel('LFP Approximation (mV)','FontSize',60)
+xlabel('time (ms)','FontSize',10);
+ylabel('LFP Approximation (mV)','FontSize',10)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 ax.LineWidth = 5.0;
 xlim([t(startIntervalFull) t(endIntervalFull)])
 set(gca,'box','off');
@@ -187,10 +190,10 @@ endInterval = 4500;
 approxLFP = mean(popV(:,analysisCut:end));
 figure; clf;
 plot(t,approxLFP,'k');
-xlabel('time (ms)','FontSize',60);
-ylabel('LFP Approximation (mV)','FontSize',60)
+xlabel('time (ms)','FontSize',10);
+ylabel('LFP Approximation (mV)','FontSize',10)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 xlim([t(1) t(end)])
 set(gca,'box','off');
 title('Mean mV (First Approximation LFP) for CA3 Local Circuit');
@@ -201,10 +204,10 @@ close all;
 % Plot the 500 ms time window of the LFP within the analysis window
 figure; clf;
 plot(t(startInterval:endInterval),approxLFP(startInterval:endInterval),'k');
-xlabel('time (ms)','FontSize',60);
-ylabel('LFP Approximation (mV)','FontSize',60)
+xlabel('time (ms)','FontSize',10);
+ylabel('LFP Approximation (mV)','FontSize',10)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 xlim([t(startInterval) t(endInterval)])
 set(gca,'box','off');
 title('Mean mV (First Approximation LFP) for CA3 Local Circuit');
@@ -226,10 +229,10 @@ end
 approxLFPPyr = mean(popVPyr(:,analysisCut:end));
 figure; clf;
 plot(t,approxLFPPyr,'k');
-xlabel('time (ms)','FontSize',60);
-ylabel('LFP Approximation (mV)','FontSize',60)
+xlabel('time (ms)','FontSize',10);
+ylabel('LFP Approximation (mV)','FontSize',10)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 xlim([t(1) t(end)])
 set(gca,'box','off');
 title('Mean mV (First Approximation LFP) for CA3 Pyramidal cells');
@@ -240,10 +243,10 @@ close all;
 % Plot the 500 ms window of the Pyramidal LFP within the analysis window
 figure; clf;
 plot(t(startInterval:endInterval),approxLFPPyr(startInterval:endInterval),'k');
-xlabel('time (ms)','FontSize',60);
-ylabel('LFP Approximation (mV)','FontSize',60)
+xlabel('time (ms)','FontSize',10);
+ylabel('LFP Approximation (mV)','FontSize',10)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 xlim([t(startInterval) t(endInterval)])
 set(gca,'box','off');
 title('Mean mV (First Approximation LFP) for CA3 Pyramidal cells');
@@ -264,10 +267,10 @@ end
 approxLFPIN = mean(popVIN(:,analysisCut:end));
 figure; clf;
 plot(t,approxLFPIN,'k');
-xlabel('time (ms)','FontSize',60);
-ylabel('LFP Approximation (mV)','FontSize',60)
+xlabel('time (ms)','FontSize',10);
+ylabel('LFP Approximation (mV)','FontSize',10)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 xlim([t(1) t(end)])
 set(gca,'box','off');
 title('Mean mV (First Approximation LFP) for CA3 Interneurons');
@@ -278,10 +281,10 @@ close all;
 % Plot the 500 ms window of the IN LFP within the analysis window
 figure; clf;
 plot(t(startInterval:endInterval),approxLFPIN(startInterval:endInterval),'k');
-xlabel('time (ms)','FontSize',60);
-ylabel('LFP Approximation (mV)','FontSize',60)
+xlabel('time (ms)','FontSize',10);
+ylabel('LFP Approximation (mV)','FontSize',10)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 xlim([t(startInterval) t(endInterval)])
 set(gca,'box','off');
 title('Mean mV (First Approximation LFP) for CA3 Interneurons');
@@ -363,7 +366,7 @@ for i = 1:numNeuronTypes
     % Set the figure properties for better viewing of the plot.
     ax = gca;
     ax.LineWidth = 5.0;
-    ax.FontSize = 40;
+    ax.FontSize = 9;
     axPos = get(gca,'position');
     axPos(3) = 0.7;
     set(gca,'position',axPos)
@@ -376,13 +379,13 @@ for i = 1:numNeuronTypes
     % Set the size of the legend labels for each neuron type.
     neuronType = nTypeLFP{1,i};
     str = sprintf('%s',neuronType);
-    hLg = legend(str,'FontSize',35','Interpreter', 'None');
+    hLg = legend(str,'FontSize',9','Interpreter', 'None');
     hLg.LineWidth = 0.5;
     box off;
     
     % Set the figure title
     if i == 1
-        title('Mean mV (First Approximation LFP) for CA3 Local Circuit','FontSize',50);
+        title('Mean mV (First Approximation LFP) for CA3 Local Circuit','FontSize',10);
     end
 end
 
@@ -392,8 +395,8 @@ set(gcf,'Position',get(0,'ScreenSize'));
 h = text(1,1, 'LFP (mV)');
 set (h,'Rotation', 90);
 set (h,'Position', [-500, 200]);
-set(h,'FontSize', 50);
-xlabel('time (ms)','FontSize',50);
+set(h,'FontSize', 10);
+xlabel('time (ms)','FontSize',10);
 set(gcf,'Position',get(0,'ScreenSize'));
 saveas(gcf,fileOutLoc + "/" + "lfp_by_neuron_type" + "_" + className + ".jpeg");
 
@@ -414,7 +417,7 @@ for i = 1:numNeuronTypes
     % Set the figure properties for better viewing of the plot.
     ax = gca;
     ax.LineWidth = 5.0;
-    ax.FontSize = 40;
+    ax.FontSize = 9;
     axPos = get(gca,'position');
     axPos(3) = 0.7;
     set(gca,'position',axPos)
@@ -430,13 +433,13 @@ for i = 1:numNeuronTypes
     % Set the size of the legend labels for each neuron type.
     neuronType = nTypeLFP{1,i};
     str = sprintf('%s',neuronType);
-    hLg = legend(str,'FontSize',35','Interpreter', 'None');
+    hLg = legend(str,'FontSize',9','Interpreter', 'None');
     hLg.LineWidth = 0.5;
     box off;
     
     % Set the figure title
     if i == 1
-        title('Mean mV (First Approximation LFP) for CA3 Local Circuit','FontSize',50);
+        title('Mean mV (First Approximation LFP) for CA3 Local Circuit','FontSize',10);
     end
 end
 
@@ -446,7 +449,7 @@ set(gcf,'Position',get(0,'ScreenSize'));
 h = text(1,1, 'LFP (mV)');
 set (h,'Rotation', 90);
 set (h,'Position', [-500, 200]);
-set(h,'FontSize', 50);
-xlabel('time (ms)','FontSize',50);
+set(h,'FontSize', 10);
+xlabel('time (ms)','FontSize',10);
 set(gcf,'Position',get(0,'ScreenSize'));
 saveas(gcf,fileOutLoc + "/" + "lfp_by_neuron_type_500_ms" + "_" + className + ".jpeg");

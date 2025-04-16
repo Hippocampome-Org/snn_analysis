@@ -1,7 +1,7 @@
 clear all; close all; clc;
 
 % Create a directory for simulation results if it does not exist
-fileOutLoc = 'D:\baseline_results';
+fileOutLoc = '/home/nmsutton/git/snn_analysis_patched/baseline_analysis/analysis';
 if not(isfolder(fileOutLoc))
     mkdir(fileOutLoc)
 end
@@ -188,6 +188,7 @@ for i = 1:length(binnedSim2)
     % Compute SPC relationships and their strength of phase-locking, along
     % with the standard deviation of the phases, Rayleigh test p-values,
     % and spikes per oscillation for each neuron type
+    
     [modActivityTimes, phaseFilt, ...
      MRVLFilt, meanPhaseFilt, stdPhaseFilt, ...
      rayleighPValsFilt, spkOscRatioFilt, ...
@@ -198,7 +199,7 @@ for i = 1:length(binnedSim2)
                                                className{i}, ...
                                                fileOutLoc, ...
                                                tf);
-                              
+     %{                              
      phaseResultFilt = [phaseResultFilt; i*ones(size(phaseFilt,1),1), ...
                         phaseFilt];
      MRVLResultFilt = [MRVLResultFilt; i*ones(size(MRVLFilt,1),1), ...
@@ -211,7 +212,8 @@ for i = 1:length(binnedSim2)
      meanSpkOscRatioResultFilt = [meanSpkOscRatioResultFilt; ...
                                   i*ones(size(meanSpkOscRatioFilt,1),1), ...
                                   meanSpkOscRatioFilt];
-     
+     %}
+    
      % Compute peaks, SPC relationships and their strength of
      % phase-locking, along with standard deviation of phases and Rayleigh
      % p-values from the filtered version of an LFP computed from the mean

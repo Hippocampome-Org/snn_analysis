@@ -1,7 +1,7 @@
 clear all; close all; clc;
 
 % Create a directory for simulation results if it does not exist
-fileOutLoc = 'D:\archetype_results';
+fileOutLoc = '/home/nmsutton/git/snn_analysis_patched/archetype_analysis/analysis';
 if not(isfolder(fileOutLoc))
     mkdir(fileOutLoc)
 end
@@ -187,7 +187,7 @@ for i = 1:length(binnedSim2)
                                                className{i}, ...
                                                fileOutLoc, ...
                                                tf);
-                              
+     %{
      phaseResultFilt = [phaseResultFilt; i*ones(size(phaseFilt,1),1), ...
                         phaseFilt];
      MRVLResultFilt = [MRVLResultFilt; i*ones(size(MRVLFilt,1),1), ...
@@ -200,6 +200,7 @@ for i = 1:length(binnedSim2)
      meanSpkOscRatioResultFilt = [meanSpkOscRatioResultFilt; ...
                                   i*ones(size(meanSpkOscRatioFilt,1),1), ...
                                   meanSpkOscRatioFilt];
+     %}
      
      % Compute peaks, SPC relationships and their strength of
      % phase-locking, along with standard deviation of phases and Rayleigh

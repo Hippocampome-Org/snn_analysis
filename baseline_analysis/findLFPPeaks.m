@@ -18,10 +18,10 @@ approxLFPFull = mean(popV);
 % simulation, and save it
 figure; clf;
 spectrogram(detrend(approxLFPFull),256,250,256,1e3,'yaxis');
-xlabel('time (ms)','FontSize',60);
-ylabel('Frequency (Hz)','FontSize',60)
+xlabel('time (ms)','FontSize',12);
+ylabel('Frequency (Hz)','FontSize',12)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 set(gca,'box','off');
 title('Spectrogram for CA3 Local Circuit');
 set(gcf,'Position',get(0,'ScreenSize'));
@@ -84,11 +84,11 @@ approxLFPPyr = mean(popVPyr(:,analysisCut:end));
 figure; clf;
 subplot(2,2,1);
 plot(fNet,powSpecNet,'k')
-xlabel('Frequency (Hz)','FontSize',35)
-ylabel('PSD (db/Hz)','FontSize',35)
-title('Power Spectrum for Whole Network', 'FontSize',35,'Interpreter','None')
+xlabel('Frequency (Hz)','FontSize',9)
+ylabel('PSD (db/Hz)','FontSize',9)
+title('Power Spectrum for Whole Network', 'FontSize',9,'Interpreter','None')
 ax = gca;
-ax.FontSize = 30;
+ax.FontSize = 9;
 set(gca,'TickDir','out')
 set(gca,'box','off');
 ax.LineWidth = 5.0;
@@ -97,11 +97,11 @@ xlim([0 200])
 % Plot the power spectrum for the Pyramidal LFP
 subplot(2,2,2);
 plot(fPyr,powSpecPyr,'g')
-xlabel('Frequency (Hz)','FontSize',35)
-ylabel('PSD (db/Hz)','FontSize',35)
-title('Power Spectrum for Pyramidal Activity', 'FontSize',35,'Interpreter','None')
+xlabel('Frequency (Hz)','FontSize',9)
+ylabel('PSD (db/Hz)','FontSize',9)
+title('Power Spectrum for Pyramidal Activity', 'FontSize',9,'Interpreter','None')
 ax = gca;
-ax.FontSize = 30;
+ax.FontSize = 9;
 set(gca,'TickDir','out')
 set(gca,'box','off');
 ax.LineWidth = 5.0;
@@ -110,11 +110,11 @@ xlim([0 200])
 % Plot the power spectrum for the perisomatic LFP
 subplot(2,2,3);
 plot(fPeriIN,powSpecPeriIN,'b')
-xlabel('Frequency (Hz)','FontSize',35)
-ylabel('PSD (db/Hz)','FontSize',35)
-title('Power Spectrum for Perisomatic Interneuron Activity','FontSize',35)
+xlabel('Frequency (Hz)','FontSize',9)
+ylabel('PSD (db/Hz)','FontSize',9)
+title('Power Spectrum for Perisomatic Interneuron Activity','FontSize',9)
 ax = gca;
-ax.FontSize = 30;
+ax.FontSize = 9;
 set(gca,'TickDir','out')
 set(gca,'box','off');
 ax.LineWidth = 5.0;
@@ -123,11 +123,11 @@ xlim([0 200])
 % Plot the power spectrum for the dendritic-targeting LFP
 subplot(2,2,4);
 plot(fNonPeriIN,powSpecNonPeriIN,'color',[0.5 0.5 0.5])
-xlabel('Frequency (Hz)','FontSize',35)
-ylabel('PSD (db/Hz)','FontSize',35)
-title('Power Spectrum for Non-Perisomatic Interneuron Activity','FontSize',35)
+xlabel('Frequency (Hz)','FontSize',9)
+ylabel('PSD (db/Hz)','FontSize',9)
+title('Power Spectrum for Non-Perisomatic Interneuron Activity','FontSize',9)
 ax = gca;
-ax.FontSize = 30;
+ax.FontSize = 9;
 ax.LineWidth = 5.0;
 xlim([0 200])
 set(gca,'TickDir','out')

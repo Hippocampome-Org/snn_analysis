@@ -2,7 +2,8 @@ function [] = createFigure3Plots(NMsimData,analysisCut,tf,className,fileOutLoc)
 
 % Declare a variable for time cutoff for analysis, and a time series for
 % plotting
-t = 1:1:tf;
+%t = 1:1:tf;
+t = 1:1:10000;
 
 % Append all recorded neurons into one matrix
 popV = [];
@@ -20,20 +21,20 @@ endInterval = 3500;
 approxLFP = mean(popV(:,analysisCut:end));
 figure; clf;
 plot(t,approxLFP,'k');
-xlabel('time (ms)','FontSize',60);
-ylabel('LFP Approximation (mV)','FontSize',60)
+xlabel('time (ms)','FontSize',12);
+ylabel('LFP Approximation (mV)','FontSize',12)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 xlim([t(2000) t(end)])
 set(gca,'box','off');
 set(gcf,'Position',get(0,'ScreenSize'));
 
 figure; clf;
 plot(t(startInterval:endInterval),approxLFP(startInterval:endInterval),'k');
-xlabel('time (ms)','FontSize',60);
-ylabel('LFP Approximation (mV)','FontSize',60)
+xlabel('time (ms)','FontSize',12);
+ylabel('LFP Approximation (mV)','FontSize',12)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 xlim([t(startInterval) t(endInterval)])
 set(gca,'box','off');
 set(gcf,'Position',get(0,'ScreenSize'));
@@ -42,10 +43,10 @@ theta_filtered = bandpass(approxLFP,[4 12],1000);
 figure; clf;
 plot(t(startInterval:endInterval),theta_filtered(startInterval:endInterval),'k', ...
      'LineWidth', 4.0);
-xlabel('time (ms)','FontSize',60);
-ylabel('LFP Approximation (mV)','FontSize',60)
+xlabel('time (ms)','FontSize',12);
+ylabel('LFP Approximation (mV)','FontSize',12)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 xlim([t(startInterval) t(endInterval)])
 set(gca,'box','off');
 title('Theta Band (4-12 Hz) LFP for CA3 Local Circuit');
@@ -55,10 +56,10 @@ gamma_filtered = bandpass(approxLFP,[25 100],1000);
 figure; clf;
 plot(t(startInterval:endInterval),gamma_filtered(startInterval:endInterval),'k', ...
      'LineWidth', 4.0);
-xlabel('time (ms)','FontSize',60);
-ylabel('LFP Approximation (mV)','FontSize',60)
+xlabel('time (ms)','FontSize',12);
+ylabel('LFP Approximation (mV)','FontSize',12)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 xlim([t(startInterval) t(endInterval)])
 set(gca,'box','off');
 title('Gamma Band (25-100 Hz) LFP for CA3 Local Circuit');
@@ -68,10 +69,10 @@ swr_filtered = bandpass(approxLFP,[150 200],1000);
 figure; clf;
 plot(t(startInterval:endInterval),swr_filtered(startInterval:endInterval),'k', ...
      'LineWidth', 4.0);
-xlabel('time (ms)','FontSize',60);
-ylabel('LFP Approximation (mV)','FontSize',60)
+xlabel('time (ms)','FontSize',12);
+ylabel('LFP Approximation (mV)','FontSize',12)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 xlim([t(startInterval) t(endInterval)])
 set(gca,'box','off');
 title('SWR Band (150-200 Hz) LFP for CA3 Local Circuit');
@@ -162,7 +163,7 @@ for i = 1:numNeuronTypes
     % Set the figure properties for better viewing of the plot.
     ax = gca;
     ax.LineWidth = 5.0;
-    ax.FontSize = 40;
+    ax.FontSize = 9;
     axPos = get(gca,'position');
     axPos(3) = 0.7;
     set(gca,'position',axPos)
@@ -179,13 +180,13 @@ for i = 1:numNeuronTypes
     % Set the size of the legend labels for each neuron type.
     neuronType = nTypeLFP{1,i};
     str = sprintf('%s',neuronType);
-    hLg = legend(str,'FontSize',35','Interpreter', 'None');
+    hLg = legend(str,'FontSize',9','Interpreter', 'None');
     hLg.LineWidth = 0.5;
     box off;
     
     % Set the figure title
     if i == 1
-        title('Mean mV (First Approximation LFP) for CA3 Local Circuit','FontSize',50);
+        title('Mean mV (First Approximation LFP) for CA3 Local Circuit','FontSize',10);
     end
 end
 
@@ -195,6 +196,6 @@ set(gcf,'Position',get(0,'ScreenSize'));
 h = text(1,1, 'LFP (mV)');
 set (h,'Rotation', 90);
 set (h,'Position', [-500, 200]);
-set(h,'FontSize', 50);
-xlabel('time (ms)','FontSize',50);
+set(h,'FontSize', 10);
+xlabel('time (ms)','FontSize',10);
 set(gcf,'Position',get(0,'ScreenSize'));

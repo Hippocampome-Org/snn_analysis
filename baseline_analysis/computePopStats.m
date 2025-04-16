@@ -169,10 +169,10 @@ endInterval = 4500;
 % Plot the summed activity for the whole network in the analysis window
 figure; clf;
 plot(summedT,summedPop,'k');
-xlabel('time (ms)','FontSize',60);
-ylabel('Population Activity (Hz)','FontSize',60)
+xlabel('time (ms)','FontSize',10);
+ylabel('Population Activity (Hz)','FontSize',10)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 set(gca,'box','off');
 xlim([summedT(1) summedT(end)])
 title('Population Activity for CA3 Local Circuit');
@@ -184,10 +184,10 @@ close all;
 % in the analysis window
 figure; clf;
 plot(summedT(startInterval:endInterval),summedPop(startInterval:endInterval),'k');
-xlabel('time (ms)','FontSize',60);
-ylabel('Population Activity (Hz)','FontSize',60)
+xlabel('time (ms)','FontSize',10);
+ylabel('Population Activity (Hz)','FontSize',10)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 set(gca,'box','off');
 xlim([summedT(startInterval) summedT(endInterval)])
 title('Population Activity for CA3 Local Circuit');
@@ -198,10 +198,10 @@ close all;
 % Plot the summed activity for the Pyramidal cells in the analysis window
 figure; clf;
 plot(summedT,summedPopPyr,'k');
-xlabel('time (ms)','FontSize',60);
-ylabel('Pyramidal Activity (Hz)','FontSize',60)
+xlabel('time (ms)','FontSize',10);
+ylabel('Pyramidal Activity (Hz)','FontSize',10)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 set(gca,'box','off');
 xlim([summedT(1) summedT(end)])
 title('Pyramidal Activity for CA3 Local Circuit');
@@ -213,10 +213,10 @@ close all;
 % in the analysis window
 figure; clf;
 plot(summedT(startInterval:endInterval),summedPopPyr(startInterval:endInterval),'k');
-xlabel('time (ms)','FontSize',60);
-ylabel('Pyramidal Activity (Hz)','FontSize',60)
+xlabel('time (ms)','FontSize',10);
+ylabel('Pyramidal Activity (Hz)','FontSize',10)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 set(gca,'box','off');
 xlim([summedT(startInterval) summedT(endInterval)])
 title('Pyramidal Activity for CA3 Local Circuit');
@@ -227,10 +227,10 @@ close all;
 % Plot the summed activity for all interneurons in the analysis window
 figure; clf;
 plot(summedT,summedPopIN,'k');
-xlabel('time (ms)','FontSize',60);
-ylabel('Interneuron Activity (Hz)','FontSize',60)
+xlabel('time (ms)','FontSize',10);
+ylabel('Interneuron Activity (Hz)','FontSize',10)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 set(gca,'box','off');
 xlim([summedT(1) summedT(end)])
 title('Interneuron Activity for CA3 Local Circuit');
@@ -242,10 +242,10 @@ close all;
 % in the analysis window
 figure; clf;
 plot(summedT(startInterval:endInterval),summedPopIN(startInterval:endInterval),'k');
-xlabel('time (ms)','FontSize',60);
-ylabel('Interneuron Activity (Hz)','FontSize',60)
+xlabel('time (ms)','FontSize',10);
+ylabel('Interneuron Activity (Hz)','FontSize',10)
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 12;
 set(gca,'box','off');
 xlim([summedT(startInterval) summedT(endInterval)])
 title('Interneuron Activity for CA3 Local Circuit');
@@ -330,7 +330,7 @@ for i = 1:length(summedNType)
     % Set the figure properties for better viewing of the plot.
     ax = gca;
     ax.LineWidth = 5.0;
-    ax.FontSize = 40;
+    ax.FontSize = 9;
     axPos = get(gca,'position');
     axPos(3) = 0.7;
     set(gca,'position',axPos)
@@ -356,13 +356,13 @@ for i = 1:length(summedNType)
     neuronType = [sprintf('(CA3:%.f) ', size(pop{i}{2},1)), ...
                   neuronType(1:1),neuronType(2:end)];
     str = sprintf('%s',neuronType);
-    hLg = legend(str,'FontSize',35','Interpreter', 'None');
+    hLg = legend(str,'FontSize',9','Interpreter', 'None');
     hLg.LineWidth = 0.5;
     box off;
     
     % Set the figure title
     if i == 1
-        title('Population Activity for CA3 Local Circuit','FontSize',50);
+        title('Population Activity for CA3 Local Circuit','FontSize',10);
     end
 end
 
@@ -372,8 +372,8 @@ set(gcf,'Position',get(0,'ScreenSize'));
 h = text(1,1, 'Population Activity (Hz)');
 set (h,'Rotation', 90);
 set (h,'Position', [-500, 200]);
-set(h,'FontSize', 50);
-xlabel('time (ms)','FontSize',50);
+set(h,'FontSize', 10);
+xlabel('time (ms)','FontSize',10);
 print(fileOutLoc + "/" + fileOutNames(7) + "_" + className,'-djpeg')
 close all;
 
@@ -400,7 +400,7 @@ for i = 1:length(summedNType)
     % Set the figure properties for better viewing of the plot.
     ax = gca;
     ax.LineWidth = 5.0;
-    ax.FontSize = 40;
+    ax.FontSize = 9;
     axPos = get(gca,'position');
     axPos(3) = 0.7;
     set(gca,'position',axPos)
@@ -431,13 +431,13 @@ for i = 1:length(summedNType)
     neuronType = [sprintf('(CA3:%.f) ', size(pop{i}{2},1)), ...
                   neuronType(1:1),neuronType(2:end)];
     str = sprintf('%s',neuronType);
-    hLg = legend(str,'FontSize',35','Interpreter', 'None');
+    hLg = legend(str,'FontSize',9','Interpreter', 'None');
     hLg.LineWidth = 0.5;
     box off;
     
     % Set the figure title
     if i == 1
-        title('Population Activity for CA3 Local Circuit','FontSize',50);
+        title('Population Activity for CA3 Local Circuit','FontSize',10);
     end
 end
 
@@ -447,8 +447,8 @@ set(gcf,'Position',get(0,'ScreenSize'));
 h = text(1,1, 'Population Activity (Hz)');
 set (h,'Rotation', 90);
 set (h,'Position', [-500, 200]);
-set(h,'FontSize', 50);
-xlabel('time (ms)','FontSize',50);
+set(h,'FontSize', 10);
+xlabel('time (ms)','FontSize',10);
 print(fileOutLoc + "/" + fileOutNames(8) + "_" + className,'-djpeg')
 close all;
 
@@ -464,11 +464,11 @@ figure; clf;
 b = cdfplot(meanActivityHz);
 b.YData = b.YData(b.YData < 0.9975);
 b.XData = b.XData(1:length(b.YData));
-xlabel('Mean Frequency (Hz)','FontSize',60)
-ylabel('Cumulative Frequency','FontSize',60)
+xlabel('Mean Frequency (Hz)','FontSize',10)
+ylabel('Cumulative Frequency','FontSize',10)
 title('Empirical CDF for Mean Population Activity')
 ax = gca;
-ax.FontSize = 60;
+ax.FontSize = 11;
 set(gca,'box','off')
 xlim([0 20])
 set(gcf,'Position',get(0,'ScreenSize'));
@@ -520,11 +520,11 @@ end
 % Set the figure in full-screen mode, set x- and y-axis labels, and set the
 % names of each neuron type in the legend
 hold off;
-xlabel('Mean Frequency (Hz)','FontSize',60)
-ylabel('Cumulative Frequency','FontSize',60)
+xlabel('Mean Frequency (Hz)','FontSize',10)
+ylabel('Cumulative Frequency','FontSize',10)
 title('Empirical CDF for Mean Population Activity')
 ax = gca;
-ax.FontSize = 30;
+ax.FontSize = 9;
 set(gca,'box','off')
 set(gca,'xscale','log')
 legend(neuronTypeNames, 'Interpreter', 'None');

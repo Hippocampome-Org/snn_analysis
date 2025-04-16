@@ -4,7 +4,8 @@ if isempty(varargin)
 else
     peaks=varargin{1};
     modactivitytimes=zeros(length(activitytimes),1);
-    peaks=[peaks(1:end-1)'; peaks(end):mean(diff(peaks)):(max(activitytimes)+mean(diff(peaks)))];
+    %peaks=[peaks(1:end-1)'; peaks(end):mean(diff(peaks)):(max(activitytimes)+mean(diff(peaks)))];
+    peaks=[peaks(1:end-1) peaks(end):mean(diff(peaks)):(max(activitytimes)+mean(diff(peaks)))];
     for a=1:length(activitytimes)
         % these next two lines take up most of the time in this function
         idx=find(activitytimes(a)>=peaks(1:end-1) & activitytimes(a)<peaks(2:end),1,'first');  

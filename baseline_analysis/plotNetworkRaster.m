@@ -43,13 +43,19 @@ for i = 1:(length(A))
         plot(A{i}{2}(:,1),A{i}{2}(:,2), '.', 'color', colCell{i,1}, ...
             'MarkerSize', colCell{i,2});
         xlim([t_start t_final])
-        xlabel('Time (ms)','FontSize',25)
-        ylabel('Neuron #','FontSize',25)
-        title(cellTypeName{1}(5:end),'Interpreter','none')
+        %xlabel('Time (ms)','FontSize',25)
+        %ylabel('Neuron #','FontSize',25)
+        %title(cellTypeName{1}(5:end),'Interpreter','none')
+        %title(cellTypeName,'Interpreter','none')
         xlim([t_start t_final])
         ylim([0 size(A_binned{i}{2},1)])
+        %ylim([200 250])
         ax = gca;
         ax.FontSize = 20;
+        %box off;
+        
+        %yticks([200 250])
+        %yticklabels({'','',''})
         set(gca,'box','off');
     end
 end
@@ -84,10 +90,11 @@ for i = 1:(length(A))
             xlabel('Time (ms)','FontSize',25)
             xlim([t_start t_final])
             ylim([4000 4500])
-            title(cellTypeName{2}(5:end),'Interpreter','none')
-            str = sprintf('%s',cellTypeName{1}(5:end));
-            hLg = legend(str,'FontSize',35','Interpreter', 'None');
-            hLg.LineWidth = 0.5;
+            %title(cellTypeName{2}(5:end),'Interpreter','none')
+            %title(cellTypeName,'Interpreter','none')
+            %str = sprintf('%s',cellTypeName{1}(5:end));
+            %hLg = legend(str,'FontSize',35','Interpreter', 'None');
+            %hLg.LineWidth = 0.5;
             box off;
             yticks([4000 4500])
             yticklabels({'','',''})
@@ -118,7 +125,8 @@ for i = 1:(length(A))
             xlabel('Time (ms)','FontSize',25)
             xlim([t_start t_final])
             ylim([200 250])
-            title(cellTypeName{2}(5:end),'Interpreter','none')
+            %title(cellTypeName{2}(5:end),'Interpreter','none')
+            title(cellTypeName,'Interpreter','none')
             str = sprintf('%s',cellTypeName{1}(5:end));
             hLg = legend(str,'FontSize',35','Interpreter', 'None');
             hLg.LineWidth = 0.5;

@@ -104,7 +104,7 @@ for i = 1:numNeuronTypes
     % Set the figure properties for better viewing of the plot.
     ax = gca;
     ax.LineWidth = 5.0;   
-    ax.FontSize = 40;
+    ax.FontSize = 9;
     axPos = get(gca,'position');
     axPos(3) = 0.7;
     set(gca,'position',axPos)
@@ -133,14 +133,14 @@ for i = 1:numNeuronTypes
     str = sprintf('%s',neuronType);
 
     % Set the size of the legend labels for each neuron type.
-    hLg = legend(str,'FontSize',35','Interpreter', 'None');
+    hLg = legend(str,'FontSize',9','Interpreter', 'None');
     hLg.LineWidth = 0.5;
     box off;
     
     % Set the figure title and x-axis ticks and their corresponding labels
     % to the phase degrees of 0, 180, and 360.
     if i == 1
-        title('Firing Phase Histogram for CA3 Local Circuit','FontSize',50);
+        title('Firing Phase Histogram for CA3 Local Circuit','FontSize',10);
     end
     
     if i == numNeuronTypes

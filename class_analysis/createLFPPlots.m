@@ -2,7 +2,8 @@ function [] = createLFPPlots(NMsimData,analysisCut,tf,className,fileOutLoc)
 
 % Declare a variable for time cutoff for analysis, and a time series for
 % plotting
-t = 1:1:tf;
+%t = 1:1:tf;
+t = 1:1:10000;
 startIntervalFull = 7000;
 endIntervalFull = 7500;
 

@@ -1,5 +1,5 @@
 ## Patches
-This is a version of snn_analysis designed to be compatible with CARLsim6. This is a work-in-progress, and results and compatibility is not guaranteed. Patch details are in patch_notes.txt.
+This is a version of snn_analysis designed to be compatible with CARLsim6. This is a work-in-progress, and results in general and CARLsim6 compatibility is not guaranteed to be correct. Patch details are in patch_notes.txt.
 
 ## Required folders
 Each folder, archetype_analysis, baseline_analysis, and class_analysis, should have subfolders created in them. Those subfolders are: analysis, ca3_example. ca3_example should have a folder with the name "1" in it. The "results" folder from a CARLsim experiment should be placed in the "1" folder. One should update the directories in files such as evaluateSim.m to include the folder paths for the input (ca3_example) and output (analysis) folders. ca3_example's name can be substituted with a custom name of a project from CARLsim6 (e.g., oblomem_ret_1). One should then run evaluateSim.m to generate results. Plots are automatically saved in the analysis folder.
